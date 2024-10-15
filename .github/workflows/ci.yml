@@ -1,0 +1,20 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main  # Déclenche à chaque push sur la branche 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: false  # Désactiver la gestion des sous-modules
+          fetch-depth: 0  # Clone complet du dépôt
+
+      - name: Run a test command
+        run: echo "Workflow successfully triggered!"
